@@ -1,15 +1,12 @@
 package ui;
 
 import java.util.Scanner;
+import java.time.LocalDate;
+import model.SchoolController;
 
 public class SchoolApp {
 
-    /*
-     * ATENCION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     * Agregue los atributos (relaciones) necesarios para conectar esta clase con el
-     * modelo.
-     */
-
+    private SchoolController schoolController;
     private Scanner input;
 
     public static void main(String[] args) {
@@ -22,6 +19,13 @@ public class SchoolApp {
     // Constructor
     public SchoolApp() {
         input = new Scanner(System.in);
+    }
+
+    public SchoolController getSchoolController() {
+        return schoolController;
+    }   
+    public void setSchoolController(SchoolController schoolController) {
+        this.schoolController = schoolController;
     }
 
     /*
@@ -76,6 +80,28 @@ public class SchoolApp {
      */
 
     public void registrarComputador() {
+        System.out.println("Elegiste la opcion de registrar un computador");
+        input.nextLine(); // Limpiar el buffer
+        System.out.println("Agrega el Numero de Serial del dispositivo: ");
+        String numeroSerial=input.nextLine();
+        input.nextLine();
+        System.out.println("Indica el piso donde se ubica el computador");
+        int piso=input.nextInt();
+        if(piso<0 || piso>=5){
+            System.out.println("Piso invalido, no está dentro del rango");
+            return;
+        }
+        System.out.println("Indica la columna donde se ubica el computador");
+        int columna=input.nextInt();
+        if(columna<0 || columna>=10){
+            System.out.println("Columna invalida, no está dentro del rango");
+            return;
+        }
+
+        schoolController.agregarComputador(numeroSerial, piso, columna);
+
+
+
 
     }
 
