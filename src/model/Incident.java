@@ -11,7 +11,13 @@ public class Incident {
 
     public Incident(LocalDate fechaReporte, String descripcion) {
         this.fechaReporte = fechaReporte;
-        this.descripcion = descripcion;
+        this.descripcion = descripcion; 
+    }
+    public Incident(LocalDate fechaReporte, String descripcion, boolean solucion, int horasSolucion){
+        this.fechaReporte= fechaReporte;
+        this.descripcion=descripcion;
+        this.solucion=solucion;
+        this.horasSolucion=horasSolucion;
     }
 
     public LocalDate getFechaReporte() {
@@ -26,7 +32,7 @@ public class Incident {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public boolean Solucion() {
+    public boolean solucion() {
         return solucion;
     }
     public void setSolucion(boolean solucion) {
@@ -37,5 +43,14 @@ public class Incident {
     }
     public void setHorasSolucion(int horasSolucion) {
         this.horasSolucion = horasSolucion;
+    }
+
+/** 
+ *  Genera una representación en texto del incidente. * 
+ *  @pre true (no hay precondiciones) * @post El estado del objeto no cambia 
+ *  @return String con el formato "Descripción: X" donde X es la descripción del incidente 
+ * */
+    public String toString() {
+    return "Descripción: " + descripcion;
     }
 }
